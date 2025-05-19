@@ -5,17 +5,17 @@ translate
 
 An APL namespace for multilingual text support.
 
-the function `translate.text` takes a string argument and returns it as its result a (no-op)
+Function `translate.text` takes a string argument and returns it as its result a (no-op)
 
 		  translate.text 'yesterday'
 	yesterday
 
 unless
 
--   a dictionary defines an equivalent string in another language 
+-   `translate.dictionary` defines an equivalent string in another language
 -   and the string appears in its dictionary
 
-then the corresponding string is returned.
+when the corresponding string is returned.
 
 		  'fr' translate.text 'yesterday'
     hier
@@ -24,7 +24,7 @@ then the corresponding string is returned.
 
 Default target
 --------------
-You can set a default target language.
+You can set a default target language and omit the left argument.
 
 		  translate.default←'fr'
 		  translate.text 'yesterday'
@@ -32,7 +32,7 @@ You can set a default target language.
 
 Dictionary
 ----------
-A dictionary is a table of equivalent strings in two or more languages.
+A dictionary is a table of equivalent strings in two or more languages, where a table is a matrix and a list of column names.
 
 	      _testDictionary
 	┌────────────────────┬──────────┐
@@ -63,4 +63,4 @@ It reports in the session any tests failed and returns the number of problems fo
 
 Help
 ----
-The variable `help` contains brief help.
+The variable `translate.help` contains brief help.
