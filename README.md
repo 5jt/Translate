@@ -1,9 +1,11 @@
 translate
 =========
 
-An APL utility for multilingual text support.
+![translation dictionaries](dictionary-languages-translation.jpg)
 
-the function `translate.text` takes a string argument and returns it as ts result a (no-op)
+An APL namespace for multilingual text support.
+
+the function `translate.text` takes a string argument and returns it as its result a (no-op)
 
 		  translate.text 'yesterday'
 	yesterday
