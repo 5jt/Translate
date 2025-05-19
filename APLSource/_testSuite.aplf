@@ -1,0 +1,56 @@
+ ec←_testSuite;DEBUG;default;dictionary
+⍝ test the text function
+⍝ report errors in the session
+⍝ and return the number of errors found
+ ec←0 ⍝ error count
+
+⍝ ERROR HANDLING
+⍝ ==============
+
+ DEBUG←1 ⍝ Debug mode ON
+⍝ ----------------------
+
+ ec+←(text _catch 123 'no dictionary')'foo'
+
+ dictionary←0
+ ec+←(text _catch 123 'invalid dictionary')'foo'
+
+ dictionary←_testDictionary
+
+ ec+←(text _catch 124 'no default language')'foo'
+
+ ec+←'xx'(text _catch 125 'unknown language')'foo'
+
+ DEBUG←0 ⍝ Debug mode OFF
+⍝ -----------------------
+ ⍝ text should ignore errors and return its right argument
+ ⎕EX'dictionary'
+
+ ec+←(text _match'foo')'foo' ⍝ no dictionary
+
+ dictionary←0 0 0
+ ec+←(text _match'foo')'foo' ⍝ invalid dictionary
+
+ dictionary←_testDictionary
+ ec+←(text _match'foo')'foo' ⍝ no default language
+ ec+←'xx'(text _match'foo')'foo' ⍝ unknown language
+
+⍝ DYADIC
+⍝ ======
+⍝ without default
+ ec+←'fr'(text _match'vache')'cow'
+ ec+←'de'(text _match'Katze')'cat'
+ ec+←'fr'(text _match'foo')'foo'
+
+⍝ with default
+ default←'fr'
+ ec+←'fr'(text _match'vache')'cow'
+ ec+←'de'(text _match'Katze')'cat'
+ ec+←'fr'(text _match'foo')'foo'
+
+
+⍝ MONADIC
+⍝ =======
+ ec+←(text _match'vache')'cow'
+ ec+←(text _match'chat')'cat'
+ ec+←(text _match'foo')'foo'

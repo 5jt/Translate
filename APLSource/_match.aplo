@@ -1,0 +1,7 @@
+ _match←{
+    ⍝ test result of a function, print errors, return error flag
+     0::1⊣⎕←'Broke: ',⎕DM[1],(⎕UCS 13),⎕DM[2]
+     ⍺←⊢
+     fail←⍵⍵≢⍺ ⍺⍺ ⍵
+     fail⊣⍞←fail/'Unexpected result: ',(⍕⍵⍵),⎕UCS 13
+ }

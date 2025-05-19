@@ -1,0 +1,24 @@
+ str←{lang}text str;col;lang;langs;row;tbl
+ ⍝ Where str ∊ (1⊃dictionary)[;1]
+ ⍝ and lang ∊ 2⊃dictionary
+ ⍝ return the corresponding string
+ ⍝ otherwise return str
+
+ :If ~_validDictionary
+     'invalid dictionary'⎕SIGNAL DEBUG/123
+ :ElseIf 0 0≡⎕NC↑'lang' 'default'
+     'no default language set'⎕SIGNAL DEBUG/124
+ :Else
+
+     :If 0=⎕NC'lang'
+         lang←default
+     :EndIf
+
+     (tbl langs)←dictionary
+     :If (≢langs)<col←langs⍳⊂lang
+         ('unknown language: ',lang)⎕SIGNAL DEBUG/125
+     :ElseIf (≢tbl)≥row←tbl[;1]⍳⊂str
+         str←tbl⊃⍨⊂row col
+     :EndIf
+
+ :EndIf
