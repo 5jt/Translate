@@ -1,8 +1,8 @@
- flag←_validDictionary;key;mat
+ flag←validDictionary;key;mat
  :If ~flag←~DEBUG
  :AndIf 2=⎕NC'dictionary'
  :AndIf (,2)≡⍴dictionary
  :AndIf 326 326≡⎕DR¨(mat key)←dictionary
- :andif (≢key)=2⊃⍴mat
+ :AndIf (≢key)=2⊃⍴mat
      flag←1
  :EndIf

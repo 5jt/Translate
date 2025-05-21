@@ -4,7 +4,7 @@
  ⍝ return the corresponding string
  ⍝ otherwise return str
 
- :If ~_validDictionary
+ :If ~validDictionary
      'invalid dictionary'⎕SIGNAL DEBUG/123
  :ElseIf 0 0≡⎕NC↑'lang' 'default'
      'no default language set'⎕SIGNAL DEBUG/124
