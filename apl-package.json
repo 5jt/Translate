@@ -1,7 +1,7 @@
 {
   api: "API",
   assets: "",
-  description: "multilingual text support",
+  description: "Multilingual text support",
   documentation: "https://github.com/5jt/Translate",
   files: "",
   group: "sjt",
@@ -19,5 +19,5 @@
   source: "APLSource",
   tags: "text,multilingual",
   userCommandScript: "",
-  version: "0.1.1+6",
+  version: "0.1.4+10",
 }
